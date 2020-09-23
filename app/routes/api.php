@@ -1,7 +1,11 @@
 <?php
 use Slim\Routing\RouteCollectorProxy;
 
-$app->group('/api', function (RouteCollectorProxy $group) {
+$app->group('/api/v1', function (RouteCollectorProxy $group) {
     $group->get('/hello', 'ApiHelloController:HelloAction');
-    $group->get('/products', 'ApiHelloController:GetProductsAction');
+    $group->get('/error', 'ApiHelloController:ErrorAction');
+
+    $group->group('/user', function (RouteCollectorProxy $groupUser) {
+    	$groupUser->get('/', 'ApiUserController:GetAction');
+    });
 });

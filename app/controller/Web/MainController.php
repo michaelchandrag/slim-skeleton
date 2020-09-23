@@ -1,8 +1,8 @@
 <?php
 
-namespace Controllers\Web;
+namespace Controller\Web;
 
-use Controllers\BaseController;
+use Controller\BaseController;
 
 class MainController extends BaseController {
 
@@ -12,6 +12,6 @@ class MainController extends BaseController {
 
 	public function MainPage($request, $response, $args) {
 		$args['world'] = "world";
-		return $this->throwHTML($response, "main.php", $args);
+		return $this->deliverHTML($response, "main.php", $args);
 	}
 }
